@@ -1,3 +1,7 @@
+## PWS LINK
+- PWS Deployment Website : [checkoutify](http://raffi-dary-checkoutify.pbp.cs.ui.ac.id/).
+
+## ANSWER
 - [x] Membuat sebuah proyek Django baru.
 - [x] Membuat aplikasi dengan nama main pada proyek tersebut.
 - [x] Melakukan routing pada proyek agar dapat menjalankan aplikasi main.
