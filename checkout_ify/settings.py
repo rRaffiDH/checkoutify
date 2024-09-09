@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-rn=mkgw0z8h7p@@i###lf-u$4^ft^wp=7c!$t_xgr0@-2_*5fn
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", "raffi-dary-Checkoutify.pbp.cs.ui.ac.id"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "raffi-dary-checkoutify2.pbp.cs.ui.ac.id"]
 
 # Application definition
 
