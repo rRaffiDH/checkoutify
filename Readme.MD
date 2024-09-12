@@ -54,12 +54,15 @@
 
 5.  - [x] Membuat input form untuk menambahkan objek model pada app sebelumnya.
         - Membuat berkas forms.py di dalam direktori main yang digunakan untuk menambahkan objek model melalui form yang akan menghasilkan fields sesuai dengan model yang telah dibuat
+        
     - [x] Tambahkan 4 fungsi views baru untuk melihat objek yang sudah ditambahkan dalam format XML, JSON, XML by ID, dan JSON by ID.
         - Terdapat 4 fungsi view yang ditambahkan kedalam views.py yang masing2 digunakan untuk menampilkan data yang sudah ditambahkan ke model Attribute
             - show_xml
             - show_json
             - show_xml_by_id
             - show_json_by_id
+        
     View ini mengambil semua objek Attribute dari database dan mengubahnya menjadi format xml, json, xml dengan id spesifik, dan json dengan id spesifik, kemudian mengirimkannya sebagai HTTP response.
+
     - [x] Membuat routing URL untuk masing-masing views yang telah ditambahkan pada poin 2.
         - Untuk mengakses views yang telah dibuat di projek django, kita harus menambahkan rute (URL patterns) di dalam urls.py. Dimana setiap rute mengarahkan ke view tertentu dan diberikan nama untuk mempermudah pemanggilan di kode lainnya
