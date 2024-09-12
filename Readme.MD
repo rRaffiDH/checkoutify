@@ -68,7 +68,11 @@
         - Untuk mengakses views yang telah dibuat di projek django, kita harus menambahkan rute (URL patterns) di dalam urls.py. Dimana setiap rute mengarahkan ke view tertentu dan diberikan nama untuk mempermudah pemanggilan di kode lainnya
 
 Screenshots
+- XML Data Postman
 ![xml](assets/xml.png)
+- JSON Data Postman
 ![json](assets/json.png)
+- XML Data with ID Postman
 ![xml id](assets/xml_id.png)
+- JSON Data with ID Postman
 ![json id](assets/json_id.png)
