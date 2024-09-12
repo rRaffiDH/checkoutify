@@ -1,16 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends 'base.html' %}
+
+{% block meta %}
     <title>{{ app_name }}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+{% endblock meta %}
+
+{% block content %}
     <style>
         *:before,
         *:after {
             box-sizing: border-box;
+            
         }
         .nav-bar {
             padding: 1.2rem;
@@ -29,6 +31,32 @@
         .main {
             margin-left: 1.2rem;
         }
+        table {
+            border: solid white 2px;
+            border-radius: 1rem;
+            padding: 6px;
+            border-collapse: collapse;
+        }
+        .add-product-form {
+            text-align: center;
+        }
+        .add-product-form table {
+            margin: 0 auto; 
+        }
+        .add-product-form button {
+            border: none;
+            padding: 0.7rem;
+            margin-top: 5rem; 
+            border-radius: 1rem;
+            transition: ease-in 0.1s;
+        }
+        
+        .add-product-form button:hover {
+            background-color: rgb(230, 230, 230);
+            cursor: pointer;
+        }
+        
+
         body {
             margin: 0;
             padding: 0;
@@ -36,9 +64,20 @@
             background-color: #16423C;
             color: white;
         }
+
+        .add-product-form th, td {
+            padding: 1.5rem;
+        }
+        .add-product-form th {
+            border-bottom: solid white 1px  ;
+        }
+        .table-items:hover {
+            color: #557C56;
+            background-color: white;
+            cursor: pointer;
+        }
     </style>
-</head>
-<body>
+
     <div class="nav-bar">
         <h1>
             <span class="checkout">checkout</span><span class="ify">ify.</span>
@@ -49,6 +88,35 @@
         <p>{{ name }}</p>
         <p>{{ class }}</p>
     </div>
-</body>
-</html>
 
+
+    <div class="add-product-form">
+        {% if not attribute_entries %}
+        <p>No Products available.</p>
+        {% else %}
+        <table>
+            <tr>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Description</th>
+                <th>Stock</th>
+            </tr>
+    
+            {% for attribute in attribute_entries %}
+            
+            <tr class="table-items">
+                <td>{{ attribute.name }}</td>
+                <td>{{ attribute.price }}</td>
+                <td>{{ attribute.description }}</td>
+                <td>{{ attribute.stock }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% endif %}
+        <br />
+        <a href="{% url 'main:add_product' %}">
+            <button>Add Product</button>
+        </a>
+    </div>
+
+{% endblock content %}
