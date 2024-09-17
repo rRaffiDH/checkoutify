@@ -53,7 +53,19 @@
 4. csrf_token digunakan untuk melindungi sebuah proyek django dari serangan csrf atau cross site request forgery, serangan ini dapat dicegah dengen menggunakan csrf_token adalah sebuah nilai acak yang dihasilkan oleh server dan akan ada dalam setiap form yang diisi oleh pengguna. Ketika form dikirimkan, server akan memeriksa apakah csrf_token yang diterima sesuai dengan yang diharapkan, jika tidak server akan menolak request tsb.
 
 5.  - [x] Membuat input form untuk menambahkan objek model pada app sebelumnya.
-        - Membuat berkas forms.py di dalam direktori main yang digunakan untuk menambahkan objek model melalui form yang akan menghasilkan fields sesuai dengan model yang telah dibuat
+      - Buat berkas baru bernama forms.py di dalam direktori main.
+      - Import ModelForm dari django.forms dan Attribute dari model di main/models.py.
+      - Pilih field yang ingin ditampilkan di form.
+      - Membuat View untuk Menangani Form
+      - Buat fungsi add_product yang menangani request form dari user.
+      - Jika form valid, simpan data menggunakan form.save() dan redirect ke halaman utama setelah penyimpanan.
+      - Return context berisi form untuk dirender ke template add_product.html.
+      - Modifikasi fungsi show_main untuk mengambil semua data dari model Attribute.
+      - Pass data attribute_entries ke template main.html.
+      - Tambahkan URL di urls.py path baru dalam urlpatterns yang mengarahkan ke view add_product.
+      - Buat form HTML yang menggunakan POST method.
+      - Tambahkan csrf_token untuk keamanan.
+
 
     - [x] Tambahkan 4 fungsi views baru untuk melihat objek yang sudah ditambahkan dalam format XML, JSON, XML by ID, dan JSON by ID.
         - Terdapat 4 fungsi view yang ditambahkan kedalam views.py yang masing2 digunakan untuk menampilkan data yang sudah ditambahkan ke model Attribute
@@ -62,10 +74,12 @@
             - show_xml_by_id
             - show_json_by_id
         
-    View ini mengambil semua objek Attribute dari database dan mengubahnya menjadi format xml, json, xml dengan id spesifik, dan json dengan id spesifik, kemudian mengirimkannya sebagai HTTP response.
+    Semua fungsi yang ada di views.py ini mengambil semua objek Attribute dari database dan mengubahnya menjadi format xml, json, xml dengan id spesifik, dan json dengan id spesifik, kemudian mengirimkannya sebagai HTTP response.
 
     - [x] Membuat routing URL untuk masing-masing views yang telah ditambahkan pada poin 2.
-        - Untuk mengakses views yang telah dibuat di projek django, kita harus menambahkan rute (URL patterns) di dalam urls.py. Dimana setiap rute mengarahkan ke view tertentu dan diberikan nama untuk mempermudah pemanggilan di kode lainnya
+        - Untuk mengakses fungsi yang ada di views yang telah dibuat di projek django, kita harus menambahkan rute (URL patterns) di dalam urls.py. 
+        - Hal pertama yang dilakukan adalah mengimport fungsi dari views.py kedalam file urls.py
+        - Tambahkan path url fungsi kedalam urlpatterns untuk mengakses fungsi yang sudah diimpor
 
 Screenshots
 - XML Data Postman
