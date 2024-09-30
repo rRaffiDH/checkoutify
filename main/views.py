@@ -54,6 +54,26 @@ def add_product(request):
     context = {'form': form}
     return render(request, 'add_product.html', context)
 
+# Tugas 5
+def edit_product(request, id):
+    attribute_entries = Attribute.objects.get(pk = id)
+
+    form = AttributeForm(request.POST or None, instance=attribute_entries)
+    if form.is_valid() and request.method == "POST":
+        form.save()
+        return HttpResponseRedirect(reverse('main:show_main'))
+
+    context = {'form': form}
+    return render(request, "edit_product.html", context)
+
+def delete_product(request, id):
+    attribute_entries = Attribute.objects.get(pk = id)
+    attribute_entries.delete()
+    return HttpResponseRedirect(reverse('main:show_main'))
+
+
+
+
 # Tugas 4
 def register(request):
     form = UserCreationForm()

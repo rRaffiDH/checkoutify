@@ -1,126 +1,41 @@
-{% extends 'base.html' %}
-
-{% block meta %}
-    <title>{{ app_name }}</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-{% endblock meta %}
-
 {% block content %}
-    <style>
-        *:before,
-        *:after {
-            box-sizing: border-box;
-            
-        }
-        .nav-bar {
-            padding: 1.2rem;
-            background-color: white;
-        }
-        .nav-bar h1 {
-            margin: 0;
-        }
-        .nav-bar .checkout {
-            color: #557C56;
-            font-style: italic;
-        }
-        .nav-bar .ify {
-            color: black;
-        }
-        .main {
-            margin-left: 1.2rem;
-        }
-        table {
-            border: solid white 2px;
-            border-radius: 1rem;
-            padding: 6px;
-            border-collapse: collapse;
-        }
-        .add-product-form {
-            text-align: center;
-        }
-        .add-product-form table {
-            margin: 0 auto; 
-        }
-        .add-product-form button {
-            border: none;
-            padding: 0.7rem;
-            margin-top: 5rem; 
-            border-radius: 1rem;
-            transition: ease-in 0.1s;
-        }
-        
-        .add-product-form button:hover {
-            background-color: rgb(230, 230, 230);
-            cursor: pointer;
-        }
-        
+{% include 'navbar.html' %}
 
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Roboto', sans-serif;
-            background-color: #16423C;
-            color: white;
-        }
+<div class="pt-16">  <!-- Added padding here -->
+    <div class="p-6">  <!-- Container for the cards with padding -->
 
-        .add-product-form th, td {
-            padding: 1.5rem;
-        }
-        .add-product-form th {
-            border-bottom: solid white 1px  ;
-        }
-        .table-items:hover {
-            color: #557C56;
-            background-color: white;
-            cursor: pointer;
-        }
-    </style>
-
-    <div class="nav-bar">
-        <h1>
-            <span class="checkout">checkout</span><span class="ify">ify.</span>
-        </h1>
-    </div>
-    <div class="main">
-        <h3>Made By: </h3>
-        <p>{{ name }}</p>
-        <p>{{ class }}</p>
-    </div>
-
-
-    <div class="add-product-form">
         {% if not attribute_entries %}
-        <p>No Products available.</p>
+            <p class="text-2xl font-bold text-center mt-10 text-white">No Products Available</p> <!-- Centered and larger message -->
         {% else %}
-        <table>
-            <tr>
-                <th>Product Name</th>
-                <th>Price</th>
-                <th>Description</th>
-                <th>Stock</th>
-            </tr>
-    
-            {% for attribute in attribute_entries %}
-            
-            <tr class="table-items">
-                <td>{{ attribute.name }}</td>
-                <td>{{ attribute.price }}</td>
-                <td>{{ attribute.description }}</td>
-                <td>{{ attribute.stock }}</td>
-            </tr>
-            {% endfor %}
-        </table>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                {% for attribute in attribute_entries %}
+                <div class="bg-white border rounded-lg shadow-md p-4">
+                    <h2 class="text-lg font-bold">{{ attribute.name }}</h2>
+                    <p class="text-gray-600">Price: ${{ attribute.price }}</p>
+                    <p class="text-gray-700">{{ attribute.description }}</p>
+                    <p class="text-gray-600">Stock: {{ attribute.stock }}</p>
+                    <div class="mt-4 flex justify-between">
+                        <a href="{% url 'main:edit_product' attribute.pk %}" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+                            Edit
+                        </a>
+                        <a href="{% url 'main:delete_product' attribute.pk %}" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded">
+                            Delete
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
         {% endif %}
-        <br />
-        <a href="{% url 'main:add_product' %}">
-            <button>Add Product</button>
-        </a>
-    </div>
+        
+        <div class="mt-6 text-center"> <!-- Centering the Add Product button -->
+            <a href="{% url 'main:add_product' %}">
+                <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+                    Add Product
+                </button>
+            </a>
+        </div>
+    </div> <!-- End of padding div -->
 
-    <a href="{% url 'main:logout' %}">
-        <button>Logout</button>
-    </a>
-    <h5>Sesi terakhir login: {{ last_login }}</h5>
+    <h5 class="mt-4 font-bold text-center text-white">Last login session: {{ last_login }}</h5> <!-- Bold and centered session message -->
+</div>
 {% endblock content %}

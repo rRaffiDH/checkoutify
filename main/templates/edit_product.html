@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+{% include 'navbar.html' %}
+<div class="flex justify-center items-center min-h-screen">
+  <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+    <h1 class="text-3xl font-bold mb-6 text-center">Edit Product</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        
+        <!-- Name field -->
+        <div class="mb-4">
+            <label for="name" class="block text-sm font-medium text-gray-700">Product Name</label>
+            <input type="text" name="name" id="name" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500" value="{{ form.name.value }}" />
+            {% if form.name.errors %}
+            <p class="text-red-500 text-xs mt-2">{{ form.name.errors }}</p>
+            {% endif %}
+        </div>
+
+        <!-- Price field -->
+        <div class="mb-4">
+            <label for="price" class="block text-sm font-medium text-gray-700">Price</label>
+            <input type="number" name="price" id="price" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500" value="{{ form.price.value }}" />
+            {% if form.price.errors %}
+            <p class="text-red-500 text-xs mt-2">{{ form.price.errors }}</p>
+            {% endif %}
+        </div>
+
+        <!-- Description field -->
+        <div class="mb-4">
+            <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
+            <textarea name="description" id="description" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">{{ form.description.value }}</textarea>
+            {% if form.description.errors %}
+            <p class="text-red-500 text-xs mt-2">{{ form.description.errors }}</p>
+            {% endif %}
+        </div>
+
+        <!-- Stock field -->
+        <div class="mb-4">
+            <label for="stock" class="block text-sm font-medium text-gray-700">Stock</label>
+            <input type="number" name="stock" id="stock" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500" value="{{ form.stock.value }}" />
+            {% if form.stock.errors %}
+            <p class="text-red-500 text-xs mt-2">{{ form.stock.errors }}</p>
+            {% endif %}
+        </div>
+
+        <!-- Submit button -->
+        <div class="text-center">
+            <input class="btn bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline cursor-pointer w-full" type="submit" value="Edit Product" />
+        </div>
+    </form>
+
+    {% if messages %}
+    <ul class="mt-4">
+        {% for message in messages %}
+        <li class="text-red-500">{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+  </div>
+</div>
+
+{% endblock %}
