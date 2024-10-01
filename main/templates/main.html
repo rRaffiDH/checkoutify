@@ -1,11 +1,13 @@
 {% block content %}
+{% load static %}
 {% include 'navbar.html' %}
 
 <div class="pt-16">  <!-- Added padding here -->
     <div class="p-6">  <!-- Container for the cards with padding -->
 
         {% if not attribute_entries %}
-            <p class="text-2xl font-bold text-center mt-10 text-white">No Products Available</p> <!-- Centered and larger message -->
+            <img src="{% static 'image/sedih-banget.png' %}" alt="Sad face" style="width: 12rem; height: 12rem;" class="mx-auto"> <!-- Image added here -->
+            <p class="text-2xl font-bold text-center text-white">No Products Available</p> <!-- Centered and larger message -->
         {% else %}
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                 {% for attribute in attribute_entries %}

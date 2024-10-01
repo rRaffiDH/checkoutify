@@ -151,6 +151,24 @@ Screenshots
       - Untuk dapat melakukan request terhadap data last_login yang disimpan di cookies kita akan menambahkan kode 'last_login': request.COOKIES['last_login'] di show_main kita yang disimpan di context atau dictionary sehingga kita dapat pass ke file html kita sehingga dapat menampilkan last_login dari user.
       - Apabila user telah logout maka kita perlu menghapus cookie last_loginnya dengan menambahkan response.delete_cookie('last_login') di fungsi logout_user.
 
+## Tugas 5
+1.
+2. Responsive design menjadi konsep yang penting dalam pengembangan aplikasi web karena dengan adanya responsive design, user dapat mengakses aplikasi web kita dengan berbagai macam perangkat yang user miliki. Dengan perkembangan teknologi di dunia, jumlah perangkat yang memiliki ukuran layar dan resolusi yang berbeda juga semakin banyak, hal ini akan menyebabkan web kita tidak tertampilkan sesuai dengan keinginan kita di perangkat perangkat tertentu, dengan menerapkan konsep responsive design, web kita akan ditampilkan di semua perangkat dengan rapih dan sesuai dengan design yang telah kita buat. 
+  Contoh Web Responsive : 
+  - Twitter
+  - Google
+  Contoh Web Tidak Responsive : 
+  - Web Lama 
+  - Web Bisnis Lokal Kecil
+3. Margin, border, dan padding merupakan konsep yang penting dalam melakukan styling dengan css, ketiga komponen ini merupakan bagian dari box model pada css setelah content, sebagai bentuk visual silahkan liat gambar dibawah ini :
+  - CSS BOX MODEL
+  ![box_model](assets/box_model.png)
+  - Margin : Margin adalah ruang kosong di luar border elemen, yang memisahkan elemen tersebut dari elemen lainnya di halaman. 
+  - Border : Border adalah garis yang mengelilingi konten elemen, termasuk padding tetapi di luar konten elemen itu sendiri.
+  - Padding : Padding adalah ruang antara konten elemen dan border elemen tersebut. Padding berada di dalam border, dan memberikan jarak antara isi elemen dengan tepi dalam elemen.
+4.
+5.
+
 
 
 
