@@ -154,19 +154,50 @@ Screenshots
 ## Tugas 5
 1.
 2. Responsive design menjadi konsep yang penting dalam pengembangan aplikasi web karena dengan adanya responsive design, user dapat mengakses aplikasi web kita dengan berbagai macam perangkat yang user miliki. Dengan perkembangan teknologi di dunia, jumlah perangkat yang memiliki ukuran layar dan resolusi yang berbeda juga semakin banyak, hal ini akan menyebabkan web kita tidak tertampilkan sesuai dengan keinginan kita di perangkat perangkat tertentu, dengan menerapkan konsep responsive design, web kita akan ditampilkan di semua perangkat dengan rapih dan sesuai dengan design yang telah kita buat. 
-  Contoh Web Responsive : 
+Contoh Web Responsive : 
   - Twitter
   - Google
-  Contoh Web Tidak Responsive : 
+Contoh Web Tidak Responsive : 
   - Web Lama 
   - Web Bisnis Lokal Kecil
 3. Margin, border, dan padding merupakan konsep yang penting dalam melakukan styling dengan css, ketiga komponen ini merupakan bagian dari box model pada css setelah content, sebagai bentuk visual silahkan liat gambar dibawah ini :
   - CSS BOX MODEL
   ![box_model](assets/box_model.png)
   - Margin : Margin adalah ruang kosong di luar border elemen, yang memisahkan elemen tersebut dari elemen lainnya di halaman. 
+    - Implementasi : 
+      .element {
+        margin: 20px; Memberikan margin seragam di semua sisi 
+        margin-top: 20px; Memberikan margin bagian atas elemen
+        margin-right: 20px; Memberikan margin bagian kanan elemen
+        margin-bottom: 20px; Memberikan margin bagian bawah elemen
+        margin-left: 20px; Memberikan margin bagian kiri elemen
+      }
   - Border : Border adalah garis yang mengelilingi konten elemen, termasuk padding tetapi di luar konten elemen itu sendiri.
+    - Implementasi : 
+      .element {
+          border: 2px solid black;  Border hitam tebal 2px di semua sisi 
+          border-top: 2px dashed red;  Border atas bergaya dashed merah 2px 
+          border-bottom: 2px dotted green; Border bawah dengan garis titik-titik hijau 2px 
+      }
   - Padding : Padding adalah ruang antara konten elemen dan border elemen tersebut. Padding berada di dalam border, dan memberikan jarak antara isi elemen dengan tepi dalam elemen.
-4.
+    - Implementasi : 
+      .element {
+        padding: 10px; Padding seragam di semua sisi 
+        padding-top: 10px; Padding atas 10px 
+        padding-right: 10px; Padding kanan 10px
+        padding-bottom: 10px; Padding bawah 10px 
+        padding-left: 10px; Padding kiri 10px 
+      }
+
+
+4. Flexbox dan Grid Layout adalah dua metode tata letak di CSS yang sangat berguna untuk membuat tata letak yang responsif dan fleksibel di halaman web.
+  - Flexbox : Flexbox adalah sistem tata letak yang memudahkan pengaturan item-item dalam sebuah kontainer. Flexbox berfokus pada distribusi ruang di antara items di dalam flexbox itu sendiri.
+    - Kegunaan : 
+      Dengan Flexbox, kita dapat membuat styling yang lebih responsif, dengan jarak yang telah didefinisikan oleh flexbox contohnya space-between, space-around dll, dan dengan arah yang kita tentukan contohnya flex-direction:row/column.
+  - Grid Layout : Grid Layout adalah sistem tata letak yang memungkinkan Anda untuk mengatur item dalam baris dan kolom. Dengan grid, kita dapat membuat desain yang lebih kompleks, di mana elemen-elemen bisa ditempatkan dalam area grid yang kita definisikan.
+    - Kegunaan : 
+      Grid layout sangat bermanfaat untuk membuat tata letak yang lebih rumit, di mana elemen-elemen harus ditempatkan dengan posisi dan size yang spesifik dalam baris dan kolom.
+
 5.
 
 
