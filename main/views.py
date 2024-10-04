@@ -14,12 +14,34 @@ import datetime
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 
+# Tugas 6
+from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.http import require_POST
+from django.utils.html import strip_tags
+
+@csrf_exempt
+@require_POST
+def add_product_entry_ajax(request):
+    name = strip_tags(request.POST.get("name"))
+    price = request.POST.get("price")
+    description = strip_tags(request.POST.get("description"))
+    stock = request.POST.get("stock")
+    user = request.user
+
+    new_product = Attribute(
+        name=name, price=price, description=description,
+        stock=stock, user=user
+    )
+    new_product.save()
+
+    return HttpResponse(b"CREATED", status=201)
+
 
 def show_xml(request):
-    data = Attribute.objects.all()
+    data = Attribute.objects.filter(user=request.user)
     return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
 def show_json(request):
-    data = Attribute.objects.all()
+    data = Attribute.objects.filter(user=request.user)
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 def show_xml_by_id(request, id):
     data = Attribute.objects.filter(pk=id)
@@ -31,12 +53,10 @@ def show_json_by_id(request, id):
 # Tugas 4
 @login_required(login_url='/login')
 def show_main(request):
-    attribute_entries = Attribute.objects.filter(user=request.user)
     context = {
         'app_name': 'Checkoutify',
         'name': request.user.username,
         'class': 'PBP E',
-        'attribute_entries': attribute_entries,
         'last_login': request.COOKIES['last_login'],
     }
 
@@ -97,7 +117,8 @@ def login_user(request):
             response = HttpResponseRedirect(reverse("main:show_main"))
             response.set_cookie('last_login', str(datetime.datetime.now()))
             return response
-
+      else:
+        messages.error(request, "Invalid username or password. Please try again.")
    else:
       form = AuthenticationForm(request)
    context = {'form': form}

@@ -5,6 +5,9 @@ from main.views import register
 from main.views import login_user
 from main.views import logout_user
 
+# Tugas 6
+from main.views import add_product_entry_ajax
+
 app_name = 'main'
 
 urlpatterns = [
@@ -21,5 +24,8 @@ urlpatterns = [
     # Tugas 5
     path('edit-product/<uuid:id>', edit_product, name='edit_product'),
     path('delete/<uuid:id>', delete_product, name='delete_product'), 
+    # Tugas 6
+    path('create-ajax', add_product_entry_ajax, name='add_product_entry_ajax'),
+
 
 ]
