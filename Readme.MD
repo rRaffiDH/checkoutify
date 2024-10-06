@@ -245,21 +245,23 @@ Screenshots
 
 4. Meskipun validasi input di frontend penting untuk memberikan respons cepat dan pengalaman pengguna yang lebih baik, backend tetap harus melakukan pembersihan dan validasi data. Hal ini karena data yang dikirim dari frontend bisa dimanipulasi oleh pengguna atau pihak lain sebelum mencapai server yang menyimpan data/databse. Jika hanya mengandalkan frontend, maka aplikasi menjadi rentan terhadap serangan seperti injection atau eksploitasi lainnya. Oleh karena itu, backend harus melakukan validasi dan pembersihan sebagai lapisan keamanan tambahan.
 
-5.-[x] Mengubah tugas 5 yang telah dibuat sebelumnya menjadi menggunakan AJAX.
-  -[x] AJAX GET
-    -[x] Ubahlah kode cards data product agar dapat mendukung AJAX GET.
-      - Di bagian bawah file HTML, buat fungsi yang akan diterapkan pada setiap card, yaitu ```getProductEntries()``` yang akan melakukan AJAX GET ke endpoint show_json
-      - Buat request AJAX menggunakan ```fetch()``` untuk mengambil data dengan metode GET. Gunakan endpoint show_json, dan setelah data diambil, tampilkan ke dalam elemen HTML menggunakan innerHTML
-    -[x] Lakukan pengambilan data product menggunakan AJAX GET. Pastikan bahwa data yang diambil hanyalah data milik pengguna yang logged-in.
-      - Ubah views.py untuk menyediakan data JSON kepada front-end, buat view show_json yang akan menampilkan data dalam format JSON hanya untuk pengguna yang sedang login, seperti ```data = Attribute.objects.filter(user=request.user)```
-  -[x] AJAX POST
-    -[x] Buatlah sebuah tombol yang membuka sebuah modal dengan form untuk menambahkan product.
-      - Tambahkan sebuah tombol pada template (HTML) yang digunakan untuk memunculkan modal. Tombol ini akan memanggil fungsi ```showModal()``` untuk menampilkan modal yang berisi form input product baru.
-    -[x] Buatlah fungsi view baru untuk menambahkan product baru ke dalam basis data.
-      - Buat fungsi view baru di views.py yang akan menangani permintaan untuk menambahkan product baru. Fungsi ini mendukung metode POST untuk menerima data form dan menambahkannya ke database.
-    -[x] Buatlah path /create-ajax/ yang mengarah ke fungsi view yang baru kamu buat.
-      - Di urls.py, tambahkan path baru yang menghubungkan URL /create-ajax/ dengan fungsi view yang baru saja dibuat.
-    -[x] Hubungkan form yang telah kamu buat di dalam modal kamu ke path /create-ajax/.
-      - Pada form modal yang sudah dibuat, tambahkan AJAX untuk mengirimkan data form ke path /create-ajax/ tanpa me-reload halaman. Form ini akan dikirim ke URL /create-ajax/ saat disubmit.
-    -[x] Lakukan refresh pada halaman utama secara asinkronus untuk menampilkan daftar product terbaru tanpa reload halaman utama secara keseluruhan.
-      - Agar daftar product terbaru dapat langsung muncul tanpa reload, buat fungsi ```refreshProductList()``` yang akan memuat ulang daftar product secara asinkronus setelah data baru ditambahkan. Anda bisa melakukan ini dengan mengirim permintaan GET via AJAX untuk mengambil data terbaru dan menampilkan ulang di bagian daftar produk.
+5. - [x] Mengubah tugas 5 yang telah dibuat sebelumnya menjadi menggunakan AJAX.
+   - [x] AJAX GET
+     - [x] Ubahlah kode cards data product agar dapat mendukung AJAX GET.
+       - Di bagian bawah file HTML, buat fungsi yang akan diterapkan pada setiap card, yaitu `getProductEntries()` yang akan melakukan AJAX GET ke endpoint `show_json`.
+       - Buat request AJAX menggunakan `fetch()` untuk mengambil data dengan metode GET. Gunakan endpoint `show_json`, dan setelah data diambil, tampilkan ke dalam elemen HTML menggunakan `innerHTML`.
+     - [x] Lakukan pengambilan data product menggunakan AJAX GET. Pastikan bahwa data yang diambil hanyalah data milik pengguna yang logged-in.
+       - Ubah `views.py` untuk menyediakan data JSON kepada front-end, buat view `show_json` yang akan menampilkan data dalam format JSON hanya untuk pengguna yang sedang login, seperti `data = Attribute.objects.filter(user=request.user)`.
+   
+   - [x] AJAX POST
+     - [x] Buatlah sebuah tombol yang membuka sebuah modal dengan form untuk menambahkan product.
+       - Tambahkan sebuah tombol pada template (HTML) yang digunakan untuk memunculkan modal. Tombol ini akan memanggil fungsi `showModal()` untuk menampilkan modal yang berisi form input product baru.
+     - [x] Buatlah fungsi view baru untuk menambahkan product baru ke dalam basis data.
+       - Buat fungsi view baru di `views.py` yang akan menangani permintaan untuk menambahkan product baru. Fungsi ini mendukung metode POST untuk menerima data form dan menambahkannya ke database.
+     - [x] Buatlah path `/create-ajax/` yang mengarah ke fungsi view yang baru kamu buat.
+       - Di `urls.py`, tambahkan path baru yang menghubungkan URL `/create-ajax/` dengan fungsi view yang baru saja dibuat.
+     - [x] Hubungkan form yang telah kamu buat di dalam modal kamu ke path `/create-ajax/`.
+       - Pada form modal yang sudah dibuat, tambahkan AJAX untuk mengirimkan data form ke path `/create-ajax/` tanpa me-reload halaman. Form ini akan dikirim ke URL `/create-ajax/` saat disubmit.
+     - [x] Lakukan refresh pada halaman utama secara asinkronus untuk menampilkan daftar product terbaru tanpa reload halaman utama secara keseluruhan.
+       - Agar daftar product terbaru dapat langsung muncul tanpa reload, buat fungsi `refreshProductList()` yang akan memuat ulang daftar product secara asinkronus setelah data baru ditambahkan. Anda bisa melakukan ini dengan mengirim permintaan GET via AJAX untuk mengambil data terbaru dan menampilkan ulang di bagian daftar produk.
+
