@@ -235,3 +235,22 @@ Screenshots
       - [x] Buatlah navigation bar (navbar) untuk fitur-fitur pada aplikasi yang responsive terhadap perbedaan ukuran device, khususnya mobile dan desktop.
         - Membuat file baru navbar.html yang berisikan code dengan fitur : logo pada navbar, halaman home, halaman products, menampilkan nama user - kelas, dan tombol logout dipindahkan kedalam navbar.
         - Menambahkan design responsive Pada layar kecil, tombol akan memunculkan dan menyembunyikan menu dengan menambahkan atau menghapus kelas hidden menggunakan JavaScript dengan mengubahnya menjadi hamburger yang diambil dari svg http://www.w3.org/2000/svg..
+
+## Tugas 6
+1. JavaScript memiliki banyak manfaat dalam pengembangan aplikasi web karena penggunaan JavaScript dapat meningkatkan interaktivitas pada halaman web . Dengan JavaScript, kita bisa membuat website kita lebih dinamis yang dapat meningkatkan experience pengguna terhadap website kita mempermudah proses pengembangan front-end. 
+2. await digunakan untuk menunggu hasil dari sebuah proses sebelum melanjutkan ke baris kode berikutnya. Dalam kasus fetch(), await memastikan bahwa kita menunggu sampai respons dari server diterima sebelum melanjutkan proses data tersebut. Jika kita tidak menggunakan await, kode akan terus berjalan tanpa menunggu respons dari fetch(), sehingga kita mungkin mencoba memproses data yang belum tersedia, yang bisa menyebabkan error atau hasil yang tidak diharapkan
+3. Decorator @csrf_exempt digunakan pada view yang akan menerima AJAX POST request untuk menghindari pengecekan token CSRF, ketika melakukan AJAX POST request dari aplikasi yang tidak terintegrasi dengan mekanisme CSRF token (misalnya, dari klien pihak ketiga), kita bisa menggunakan @csrf_exempt untuk menonaktifkan proteksi tersebut pada view tertentu.
+4. Meskipun validasi input di frontend penting untuk memberikan respons cepat dan pengalaman pengguna yang lebih baik, backend tetap harus melakukan pembersihan dan validasi data. Hal ini karena data yang dikirim dari frontend bisa dimanipulasi oleh pengguna atau pihak lain sebelum mencapai server yang menyimpan data/databse. Jika hanya mengandalkan frontend, maka aplikasi menjadi rentan terhadap serangan seperti injection atau eksploitasi lainnya. Oleh karena itu, backend harus melakukan validasi dan pembersihan sebagai lapisan keamanan tambahan.
+5.  -[x] Mengubah tugas 5 yang telah dibuat sebelumnya menjadi menggunakan AJAX.
+      -[x] AJAX GET
+        -[x] Ubahlah kode cards data mood agar dapat mendukung AJAX GET.
+          - Ubah views.py untuk menyediakan data JSON kepada front-end. Misalnya, buat view show_json yang akan menampilkan data dalam format JSON hanya untuk pengguna yang sedang login
+          - Di bagian bawah file HTML, buat fungsi yang akan diterapkan pada setiap card, yaitu ```refreshProductEntries()``` dan ```getProductEntries()``` yang akan melakukan AJAX GET ke endpoint show_json
+          - Buat request AJAX menggunakan ```fetch()``` untuk mengambil data dengan metode GET. Gunakan endpoint show_json, dan setelah data diambil, tampilkan ke dalam elemen HTML menggunakan innerHTML
+        -[x] Lakukan pengambilan data mood menggunakan AJAX GET. Pastikan bahwa data yang diambil hanyalah data milik pengguna yang logged-in.
+      -[x] AJAX POST
+        -[x] Buatlah sebuah tombol yang membuka sebuah modal dengan form untuk menambahkan mood.
+        -[x] Buatlah fungsi view baru untuk menambahkan mood baru ke dalam basis data.
+        -[x] Buatlah path /create-ajax/ yang mengarah ke fungsi view yang baru kamu buat.
+        -[x] Hubungkan form yang telah kamu buat di dalam modal kamu ke path /create-ajax/.
+        -[x] Lakukan refresh pada halaman utama secara asinkronus untuk menampilkan daftar mood terbaru tanpa reload halaman utama secara keseluruhan.
