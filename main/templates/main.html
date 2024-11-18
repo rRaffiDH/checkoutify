@@ -5,11 +5,11 @@
 {% load static %}
 {% include 'navbar.html' %}
 
-<div class="pt-16">  <!-- Added padding here -->
-    <div class="p-6">  <!-- Container for the cards with padding -->
+<div class="pt-16">  
+    <div class="p-6">  
 
         <div id="product_entry_cards"></div>
-        <div class="flex justify-center space-x-4 mt-6"> <!-- Added flexbox for centering and spacing -->
+        <div class="flex justify-center space-x-4 mt-6">
             <a href="{% url 'main:add_product' %}">
                 <button class="btn bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline cursor-pointer">
                     Add New Product Entry
@@ -21,7 +21,7 @@
         </div>
         <div id="crudModal" tabindex="-1" aria-hidden="true" class="hidden fixed inset-0 z-50 w-full flex items-center justify-center bg-gray-800 bg-opacity-50 overflow-x-hidden overflow-y-auto transition-opacity duration-300 ease-out">
             <div id="crudModalContent" class="relative bg-white rounded-lg shadow-lg w-5/6 sm:w-3/4 md:w-1/2 lg:w-1/3 mx-4 sm:mx-0 transform scale-95 opacity-0 transition-transform transition-opacity duration-300 ease-out">
-                <!-- Modal header -->
+              
                 <div class="flex items-center justify-between p-4 border-b rounded-t">
                     <h3 class="text-xl font-semibold text-gray-900">
                         Add New Product Entry
@@ -33,7 +33,6 @@
                         <span class="sr-only">Close modal</span>
                     </button>
                 </div>
-                <!-- Modal body -->
                 <div class="px-6 py-4 space-y-6 form-style">
                     <form id="productEntryForm">
                         <div class="mb-4">
@@ -54,7 +53,6 @@
                         </div>
                     </form>
                 </div>
-                <!-- Modal footer -->
                 <div class="flex flex-col space-y-2 md:flex-row md:space-y-0 md:space-x-2 p-6 border-t border-gray-200 rounded-b justify-center md:justify-end">
                     <button type="button" class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg" id="cancelButton">Cancel</button>
                     <button type="submit" id="submitProductEntry" form="productEntryForm" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg">Save</button>
@@ -64,9 +62,9 @@
         
         
 
-    </div> <!-- End of padding div -->
+    </div> 
 
-    <h5 class="mt-4 font-bold text-center text-white">Last login session: {{ last_login }}</h5> <!-- Bold and centered session message -->
+    <h5 class="mt-4 font-bold text-center text-white">Last login session: {{ last_login }}</h5> 
 </div>
 {% endblock content %}
 
@@ -91,7 +89,7 @@
             </div>
         `;
     } else {
-        classNameString = "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4"; // Mengubah menjadi grid dengan beberapa kolom
+        classNameString = "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4"; 
         productEntries.forEach((item) => {
             const name = DOMPurify.sanitize(item.fields.name);
             const description = DOMPurify.sanitize(item.fields.description);

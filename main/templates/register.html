@@ -13,8 +13,6 @@
     <form method="POST">
       {% csrf_token %}
       
-      <!-- Username field -->
-      <!-- Username field -->
       <div class="mb-4">
         <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
         <input type="text" name="username" id="username" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500" />
@@ -24,7 +22,6 @@
       </div>
 
 
-      <!-- Password field -->
       <div class="mb-4">
         <label for="password1" class="block text-sm font-medium text-gray-700">Password</label>
         <input type="password" name="password1" id="password1" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500" />
@@ -32,8 +29,6 @@
         <p class="text-red-500 text-xs mt-2">{{ form.password1.errors }}</p>
         {% endif %}
       </div>
-
-      <!-- Password confirmation field -->
       <div class="mb-4">
         <label for="password2" class="block text-sm font-medium text-gray-700">Confirm Password</label>
         <input type="password" name="password2" id="password2" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500" />
@@ -42,7 +37,6 @@
         {% endif %}
       </div>
 
-      <!-- Submit button -->
       <div class="text-center">
         <input class="btn bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline cursor-pointer w-full" type="submit" value="Register" />
       </div>

@@ -12,7 +12,6 @@
     <form method="POST">
         {% csrf_token %}
         
-        <!-- Name field -->
         <div class="mb-4">
             <label for="name" class="block text-sm font-medium text-gray-700">Product Name</label>
             <input type="text" name="name" id="name" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500" value="{{ form.name.value }}" />
@@ -21,7 +20,6 @@
             {% endif %}
         </div>
 
-        <!-- Price field -->
         <div class="mb-4">
             <label for="price" class="block text-sm font-medium text-gray-700">Price</label>
             <input type="number" name="price" id="price" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500" value="{{ form.price.value }}" />
@@ -30,7 +28,6 @@
             {% endif %}
         </div>
 
-        <!-- Description field -->
         <div class="mb-4">
             <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
             <textarea name="description" id="description" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">{{ form.description.value }}</textarea>
@@ -39,7 +36,6 @@
             {% endif %}
         </div>
 
-        <!-- Stock field -->
         <div class="mb-4">
             <label for="stock" class="block text-sm font-medium text-gray-700">Stock</label>
             <input type="number" name="stock" id="stock" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500" value="{{ form.stock.value }}" />
@@ -48,7 +44,6 @@
             {% endif %}
         </div>
 
-        <!-- Submit button -->
         <div class="text-center">
             <input class="btn bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline cursor-pointer w-full" type="submit" value="Edit Product" />
         </div>

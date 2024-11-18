@@ -16,12 +16,12 @@
                     <span class="text-green-800">checkout</span><span class="text-black">ify</span>
                 </h1>
             </div>
-            <div class="flex items-center md:hidden"> <!-- Hamburger icon for mobile -->
+            <div class="flex items-center md:hidden"> 
                 <button id="mobile-menu-toggle" class="text-black focus:outline-none">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
                 </button>
             </div>
-            <div class="hidden md:flex md:items-center md:space-x-4"> <!-- Navbar links for larger screens -->
+            <div class="hidden md:flex md:items-center md:space-x-4"> 
                 <a href="{% url 'main:show_main' %}" class="text-black hover:text-gray-300 font-semibold">Home</a>
                 <a href="{% url 'main:show_json' %}" class="text-black hover:text-gray-300 font-semibold">Products</a>
                 <span class="text-black mr-4 user font-semibold">{{ user.username }} - {{ class }}</span>
@@ -32,7 +32,7 @@
         </div>
     </div>
     
-    <!-- Mobile menu -->
+   
     <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg">
         <div class="flex flex-col px-4 py-2">
             <a href="{% url 'main:show_main' %}" class="text-black hover:text-gray-300 py-2">Home</a>

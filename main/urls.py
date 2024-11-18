@@ -1,5 +1,5 @@
 from django.urls import path
-from main.views import show_main, add_product, show_xml, show_json, show_xml_by_id, show_json_by_id, edit_product, delete_product
+from main.views import show_main, add_product, show_xml, show_json, show_xml_by_id, show_json_by_id, edit_product, delete_product, create_product_flutter
 # Tugas 4
 from main.views import register
 from main.views import login_user
@@ -26,6 +26,9 @@ urlpatterns = [
     path('delete/<uuid:id>', delete_product, name='delete_product'), 
     # Tugas 6
     path('create-ajax', add_product_entry_ajax, name='add_product_entry_ajax'),
+    path('create-flutter/', create_product_flutter, name='create_product_flutter'),
+
+
 
 
 ]
